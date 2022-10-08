@@ -8,7 +8,7 @@ class CustomButton extends StatelessWidget {
   }) : super(key: key);
 
   final String text;
-  final VoidCallback? onPressed;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,13 @@ class CustomButton extends StatelessWidget {
       child: CupertinoButton(
         padding: const EdgeInsets.symmetric(vertical: 20),
         color: const Color(0xFF4631D2),
+        onPressed: onPressed,
         child: Text(
           text,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
-        onPressed: () {},
       ),
     );
   }

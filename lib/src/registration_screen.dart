@@ -19,29 +19,30 @@ class RegistrationScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
-            SizedBox(height: 32),
+          children: [
+            const SizedBox(height: 32),
 
-            CustomTextField(
+            const CustomTextField(
               placeholder: 'Логин',
             ),
-            CustomLine(),
-            CustomTextField(
+            const CustomLine(),
+            const CustomTextField(
               placeholder: 'Телефон',
             ),
-            CustomLine(),
-            CustomTextField(
+            const CustomLine(),
+            const CustomTextField(
               placeholder: 'Почта',
             ),
-            CustomLine(),
-            CustomTextField(
+            const CustomLine(),
+            const CustomTextField(
               placeholder: 'Пароль',
             ),
-            CustomLine(),
-            SizedBox(height: 327),
-            CustomButton(
+            const CustomLine(),
+            const Spacer(),
+            const CustomButton(
               text: 'Создать аккаунт',
             ),
+            const SizedBox(height: 16,)
           ],
         ),
       ),

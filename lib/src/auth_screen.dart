@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:test_task_code_union/src/common/custom_button.dart';
 import 'package:test_task_code_union/src/common/custom_line.dart';
 import 'package:test_task_code_union/src/common/custom_textfield.dart';
+import 'package:test_task_code_union/src/feed_screen.dart';
+import 'package:test_task_code_union/src/main_screen.dart';
 import 'package:test_task_code_union/src/registration_screen.dart';
-
-
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -35,18 +35,24 @@ class AuthScreen extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-
           CustomButton(
-            text: 'Войти', onPressed: () {
+            text: 'Войти',
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) {
+                    return const MainScreen();
 
+                  },
+                ),
+              );
+            },
 
-          },
           ),
-
           const SizedBox(
             height: 19,
           ),
-
           CustomButton(
             text: 'Зарегистрироваться',
             onPressed: () {
@@ -55,15 +61,13 @@ class AuthScreen extends StatelessWidget {
                 CupertinoPageRoute(
                   builder: (context) {
                     return const RegistrationScreen();
+
                   },
                 ),
               );
             },
-
-
           ),
         ],
-
       )),
     );
   }
