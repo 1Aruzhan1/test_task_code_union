@@ -15,7 +15,8 @@ class FeedScreen extends StatelessWidget {
 
       child: SafeArea(
         child: Column(
-          children: const [
+          children:
+          const [
             Padding(
               padding: EdgeInsets.all(16),
               child: CupertinoSearchTextField(
@@ -25,6 +26,8 @@ class FeedScreen extends StatelessWidget {
               ),
             ),
           ],
+
+
 
 
         ),

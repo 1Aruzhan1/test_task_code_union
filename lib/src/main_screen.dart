@@ -28,7 +28,7 @@ class MainScreen extends StatelessWidget {
               case 0:
                 return const FeedScreen();
               case 1:
-                return const CardWidget();
+                return const PlaceList();
               case 2:
                 return const FavouriteScreen ();
               case 3:
