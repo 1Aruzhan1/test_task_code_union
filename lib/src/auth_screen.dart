@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:test_task_code_union/src/common/custom_button.dart';
 import 'package:test_task_code_union/src/common/custom_line.dart';
 import 'package:test_task_code_union/src/common/custom_textfield.dart';
-import 'package:test_task_code_union/src/feed_screen.dart';
+
 import 'package:test_task_code_union/src/main_screen.dart';
 import 'package:test_task_code_union/src/registration_screen.dart';
 

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:test_task_code_union/src/cards_widget.dart';
 import 'package:test_task_code_union/src/feed_screen.dart';
 import 'package:test_task_code_union/src/profile_screen.dart';
 import 'package:test_task_code_union/src/registration_screen.dart';
@@ -26,9 +25,9 @@ class MainScreen extends StatelessWidget {
           builder: (context) {
             switch (index) {
               case 0:
-                return const FeedScreen();
+                return PlaceList();
               case 1:
-                return const PlaceList();
+                return  PlaceList();
               case 2:
                 return const FavouriteScreen ();
               case 3:
