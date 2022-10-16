@@ -137,6 +137,7 @@ class _PlaceListState extends State<PlaceList> {
                                   const SizedBox(height: 24),
                                   const Icon(CupertinoIcons.heart,
                                       color: Colors.black),
+
                                   const SizedBox(width: 24),
                                 ],
                               ),

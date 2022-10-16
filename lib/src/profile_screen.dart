@@ -8,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      backgroundColor: const Color(0xFFF3F4F6),
       navigationBar: const CupertinoNavigationBar(
         backgroundColor: CupertinoColors.white,
         border: Border(),
