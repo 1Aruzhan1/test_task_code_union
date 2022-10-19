@@ -5,8 +5,8 @@ import 'package:test_task_code_union/src/registration_screen.dart';
 
 import 'favourite_screen.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,10 @@ class MainScreen extends StatelessWidget {
               case 0:
                 return const PlaceList();
               case 1:
-                return  const PlaceList();
+                // TODO: replace with MapScreen when its ready
+                return const PlaceList();
               case 2:
-                return const FavouriteScreen ();
+                return const FavouriteScreen();
               case 3:
                 return const ProfileScreen();
               default:

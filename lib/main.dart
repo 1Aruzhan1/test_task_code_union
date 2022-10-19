@@ -16,11 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
+    return CupertinoApp(
       onGenerateRoute: AppRouter.generateRoute,
-
-      home: AuthScreen(),
-
+      navigatorKey: AppRouter.rootNavigatorKey,
+      home: const AuthScreen(),
     );
 
 }

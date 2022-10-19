@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:test_task_code_union/src/auth_screen.dart';
+import 'package:test_task_code_union/src/router/router.dart';
 import 'package:test_task_code_union/src/router/routing_const.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -29,8 +29,7 @@ class ProfileScreen extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Color(0xFFF3F4F6),
                   backgroundImage:
-                  NetworkImage(
-                      'https://img.icons8.com/3d-fluency/344/businesswoman.png'),
+                      NetworkImage('https://img.icons8.com/3d-fluency/344/businesswoman.png'),
                 ),
               ),
               const SizedBox(height: 15),
@@ -41,9 +40,7 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 12),
               const Text(
                 'urazbekovaaruzhan@gmail.com',
-                style: TextStyle(color: Colors.grey,
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal),
+                style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.normal),
               ),
               const SizedBox(height: 27),
               Padding(
@@ -52,18 +49,14 @@ class ProfileScreen extends StatelessWidget {
                   width: double.infinity,
                   child: CupertinoButton(
                     color: const Color(0xFFffffff),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 30),
+                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                     alignment: Alignment.centerLeft,
                     child: const Text(
                       "Выйти",
-                      style: TextStyle(color: Color(0xFFEC3A4D),
-                          fontWeight: FontWeight.w400),
+                      style: TextStyle(color: Color(0xFFEC3A4D), fontWeight: FontWeight.w400),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(
-                          context, authRoute);
-
+                      AppRouter.replaceRoot(authRoute);
                     },
                   ),
                 ),
