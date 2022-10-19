@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:test_task_code_union/src/common/custom_button.dart';
 import 'package:test_task_code_union/src/common/custom_line.dart';
 import 'package:test_task_code_union/src/common/custom_textfield.dart';
+import 'package:test_task_code_union/src/router/routing_const.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -39,8 +40,12 @@ class RegistrationScreen extends StatelessWidget {
             ),
             const CustomLine(),
             const Spacer(),
-            const CustomButton(
+            CustomButton(
               text: 'Создать аккаунт',
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, homeRoute);
+              },
             ),
             const SizedBox(height: 16,)
           ],

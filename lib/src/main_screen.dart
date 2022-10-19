@@ -3,7 +3,6 @@ import 'package:test_task_code_union/src/feed_screen.dart';
 import 'package:test_task_code_union/src/profile_screen.dart';
 import 'package:test_task_code_union/src/registration_screen.dart';
 
-import 'auth_screen.dart';
 import 'favourite_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -25,9 +24,9 @@ class MainScreen extends StatelessWidget {
           builder: (context) {
             switch (index) {
               case 0:
-                return PlaceList();
+                return const PlaceList();
               case 1:
-                return  PlaceList();
+                return  const PlaceList();
               case 2:
                 return const FavouriteScreen ();
               case 3:

@@ -4,7 +4,10 @@ import 'package:test_task_code_union/src/common/custom_line.dart';
 import 'package:test_task_code_union/src/feed_screen.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+
+  final Place place;
+
+  const DetailScreen(this.place, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,9 @@ class DetailScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * .3,
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/img/mega.png'),
+                        image: AssetImage(place.buildImage),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -44,10 +47,10 @@ class DetailScreen extends StatelessWidget {
                             },
                             child: const Icon(Icons.arrow_back_ios, color: Colors.white,
                             size: 16)),
-                        const Spacer(),
-                        const Expanded(
+                        Spacer(),
+                        Expanded(
                           child: Text(
-                            'Esentai Mall',
+                            place.title,
                             style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
@@ -57,11 +60,11 @@ class DetailScreen extends StatelessWidget {
                     )),
               ],
             ),
-            const SizedBox(height: 16),
-            const Padding(
+             SizedBox(height: 16),
+             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                'Описание',
+                place.title,
                 style: TextStyle(
                   color: Color(0xFF929292),
                   fontSize: 13,
@@ -70,10 +73,10 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 3),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                'Новый способ обжарки хачапури только у нас и вкуснейшие салатики малибу и ...',
+                place.detailDescription,
               ),
             ),
             const SizedBox(height: 5),

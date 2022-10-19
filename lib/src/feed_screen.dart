@@ -2,15 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_code_union/src/detail_screen.dart';
 
+
 class Place {
+  final int id;
+  bool isFavourite;
   final String buildImage;
   final String title;
   final String description;
+  final String detailDescription;
 
   Place({
+    required this.id,
+    this.isFavourite = false,
     required this.buildImage,
     required this.title,
     required this.description,
+    required this.detailDescription,
   });
 }
 
@@ -28,34 +35,40 @@ class _PlaceListState extends State<PlaceList> {
       title: "Mega Center",
       description:
           "Один из крупнейших торговых центров в Алматы по ул. Розыбакиева",
+      id: 1, detailDescription: 'Неполитанская пицца только у нас и вкуснейшая паста и ...',
     ),
     Place(
       buildImage: 'assets/img/esentai.png',
       title: "Esentai Mall",
       description:
           "Один из крупнейших торговых центров в Алматы по ул. Аль-Фараби",
+      id: 2, detailDescription: 'Новый способ обжарки хачапури только у нас и вкуснейшие '
+        'салатики малибу и ...',
     ),
     Place(
       buildImage: 'assets/img/mega.png',
       title: "Asia Park",
       description:
           "Один из крупнейших торговых центров в Алматы по ул. Аль-Фараби",
+      id: 3, detailDescription: 'Новый салат',
     ),
   ];
+
   var _filteredPlaces = <Place>[];
 
   final _searchController = TextEditingController();
 
   void _searchPlaces() {
-    final query = _searchController.text;
-    if (query.isNotEmpty) {
-      _filteredPlaces = _places.where((Place place) {
-        return place.title.contains(query);
-      }).toList();
-    } else {
-      _filteredPlaces = _places;
-    }
-    setState(() {});
+    setState(() {
+      final query = _searchController.text;
+      if (query.isNotEmpty) {
+        _filteredPlaces = _places.where((Place place) {
+          return place.title.toLowerCase().contains(query.toLowerCase());
+        }).toList();
+      } else {
+        _filteredPlaces = _places;
+      }
+    });
   }
 
   @override
@@ -63,6 +76,7 @@ class _PlaceListState extends State<PlaceList> {
     super.initState();
 
     _searchController.addListener(_searchPlaces);
+    _searchPlaces();
   }
 
   @override
@@ -83,20 +97,25 @@ class _PlaceListState extends State<PlaceList> {
                 itemCount: _filteredPlaces.length,
                 itemExtent: 250,
                 itemBuilder: (BuildContext context, int index) {
-                  final place = _places[index];
-
+                  final place = _filteredPlaces[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 10),
                     child: Material(
                       color: const Color(0xFFFEFEFE),
-                      borderRadius: const BorderRadius.all(Radius.circular(6)),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(6)),
                       child: InkWell(
                         borderRadius: BorderRadius.circular(6),
                         onTap: () {
-                          Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => const DetailScreen(),
-                          ));
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) {
+                                return DetailScreen(place);
+                              },
+                            ),
+                          );
                         },
                         child: Column(
                           children: [
@@ -118,7 +137,8 @@ class _PlaceListState extends State<PlaceList> {
                                       children: [
                                         Text(
                                           place.title,
-                                          style: const TextStyle(fontSize: 16),
+                                          style:
+                                              const TextStyle(fontSize: 16),
                                         ),
                                         Expanded(
                                           child: Text(
@@ -135,9 +155,20 @@ class _PlaceListState extends State<PlaceList> {
                                     ),
                                   ),
                                   const SizedBox(height: 24),
-                                  const Icon(CupertinoIcons.heart,
-                                      color: Colors.black),
-
+                                  IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        place.isFavourite =
+                                            !place.isFavourite;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      color: Colors.black,
+                                      place.isFavourite
+                                          ? CupertinoIcons.heart_fill
+                                          : CupertinoIcons.heart,
+                                    ),
+                                  ),
                                   const SizedBox(width: 24),
                                 ],
                               ),
